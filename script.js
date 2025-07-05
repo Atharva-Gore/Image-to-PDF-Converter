@@ -4,8 +4,15 @@ const statusText = document.getElementById("status");
 
 convertBtn.addEventListener("click", async () => {
   const files = imageInput.files;
+
   if (files.length === 0) {
     statusText.textContent = "Please select at least one image.";
+    statusText.style.color = "red";
+    return;
+  }
+
+  if (files.length > 15) {
+    statusText.textContent = "Maximum limit is 15 images.";
     statusText.style.color = "red";
     return;
   }
